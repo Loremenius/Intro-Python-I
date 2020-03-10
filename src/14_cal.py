@@ -30,3 +30,18 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+current_date = datetime.now()
+def pick_date(month, year):
+  try:
+    calendar.prmonth(int(year), int(month))
+  except:
+    print("Format must be month year")
+# print(datetime.now().month)
+# calendar.prmonth(2020,3)
+if len(sys.argv) == 1:
+  sys.argv.append(current_date.month)
+  sys.argv.append(current_date.year)
+else:
+  sys.argv.append(current_date.year)
+
+pick_date(sys.argv[1],sys.argv[2])
